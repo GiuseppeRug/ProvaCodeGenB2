@@ -1,0 +1,4 @@
+../Core/Src/Board2.c:68:24:Board2_computeUserAction	24	static
+../Core/Src/Board2.c:86:6:Board2_step	24	static
+../Core/Src/Board2.c:341:6:Board2_initialize	4	static
+../Core/Src/Board2.c:347:6:Board2_terminate	4	static

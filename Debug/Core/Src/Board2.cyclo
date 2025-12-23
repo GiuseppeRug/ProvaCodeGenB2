@@ -1,0 +1,4 @@
+../Core/Src/Board2.c:68:24:Board2_computeUserAction	5
+../Core/Src/Board2.c:86:6:Board2_step	37
+../Core/Src/Board2.c:341:6:Board2_initialize	1
+../Core/Src/Board2.c:347:6:Board2_terminate	1
