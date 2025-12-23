@@ -19,9 +19,9 @@ uint8_t CheckRTR(void)
 void UartTransmitIT(uint8_t *pData, size_t size)
 {
     /* Stub */
-	BUS_LocalStateB1 tmp;
-	deserializeLocalStateB1(pData, size, &tmp);
-    printLocalStateB1(&tmp);
+	BUS_LocalStateB2 tmp;
+	deserializeLocalStateB2(pData, size, &tmp);
+    printLocalStateB2(&tmp);
 }
 
 void UartReceiveIT(uint8_t *pData, size_t size)

@@ -100,7 +100,7 @@ int main(void) {
 	// Coming from Sensors
 	Board2_U.sonar = (BUS_Sonar ) { 500, 500, 500 };
 	Board2_U.gyroscope = (Gyroscope) 40.0f;
-	Board2_U.batteryLevel = (BUS_RemoteController) {13.0f};
+	Board2_U.remoteController = (BUS_RemoteController) {13, 13, 13};
 
 	// Coming from ModelAction
 	Board2_U.roverAction = RA_IDLE;
@@ -110,7 +110,7 @@ int main(void) {
 	// Continua
 	Board2_U.continua = 0;
 	// Receive che dovrebbe essere gestito dalla receive it
-	Board2_DW.received = 0;
+	Board2_DW.received = 1;
 
 	Board2_initialize();
 
