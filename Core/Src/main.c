@@ -24,6 +24,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "Board2.h"
+#include "print.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -96,7 +97,9 @@ int main(void) {
 	MX_LPUART1_UART_Init();
 	MX_USART2_UART_Init();
 	/* USER CODE BEGIN 2 */
-
+	clearScreen();
+	printMsg("Begin B2\r\n");
+	HAL_GPIO_WritePin(RTR_OUT_GPIO_Port, RTR_OUT_Pin,GPIO_PIN_RESET);
 	// Coming from Sensors
 	Board2_U.sonar = (BUS_Sonar ) { 500, 500, 500 };
 	Board2_U.gyroscope = (Gyroscope) 40.0f;
@@ -110,7 +113,7 @@ int main(void) {
 	// Continua
 	Board2_U.continua = 0;
 	// Receive che dovrebbe essere gestito dalla receive it
-	Board2_DW.received = 1;
+	Board2_DW.received = 0;
 
 	Board2_initialize();
 

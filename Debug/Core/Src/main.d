@@ -30,7 +30,7 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Core/Inc/Board2.h ../Core/Inc/rtwtypes.h ../Core/Inc/Board_types.h \
  ../Core/Inc/serialize.h ../Core/Inc/deserialize.h \
  ../Core/Inc/UART_frames.h ../Core/Inc/Board_types.h \
- ../Core/Inc/stubFunctions.h
+ ../Core/Inc/stubFunctions.h ../Core/Inc/print.h ../Core/Inc/usart.h
 ../Core/Inc/main.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:
 ../Core/Inc/stm32g4xx_hal_conf.h:
@@ -70,3 +70,5 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Core/Inc/UART_frames.h:
 ../Core/Inc/Board_types.h:
 ../Core/Inc/stubFunctions.h:
+../Core/Inc/print.h:
+../Core/Inc/usart.h:
