@@ -35,6 +35,6 @@
 /* SetPoint = 2 float */
 #define SETPOINT_FRAME_SIZE (sizeof(BUS_SetPoint))
 /* Decision = 2 int (ENUM_Actuator, ENUM_RoverAction) */
-#define DECISION_FRAME_SIZE ( sizeof(ENUM_Actuator) + sizeof(ENUM_RoverAction) + sizeof(ENUM_SafeAction))
+#define DECISION_FRAME_SIZE ( sizeof(BUS_Decision))
 
 #endif /* INC_UART_FRAMES_H_ */
