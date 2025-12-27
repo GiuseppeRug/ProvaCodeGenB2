@@ -4,6 +4,9 @@
 #include <stdint.h>
 #include <stddef.h>
 
+#include "states.h"
+#include "decision.h"
+
 /* Prototipi delle funzioni stub */
 
 uint8_t CheckRTR(void);

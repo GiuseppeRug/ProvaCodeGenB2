@@ -7,14 +7,9 @@
  *
  * Code generated for Simulink model 'Board2'.
  *
- * Model version                  : 2.62
+ * Model version                  : 2.71
  * Simulink Coder version         : 24.1 (R2024a) 19-Nov-2023
- * C/C++ source code generated on : Tue Dec 23 17:27:05 2025
- *
- * Target selection: ert.tlc
- * Embedded hardware selection: Intel->x86-64 (Windows64)
- * Code generation objectives: Unspecified
- * Validation result: Not run
+ * C/C++ source code generated on : Sat Dec 27 17:56:45 2025
  */
 
 #ifndef RTWTYPES_H
@@ -33,10 +28,10 @@
 
 /*=======================================================================*
  * Target hardware information
- *   Device type: Intel->x86-64 (Windows64)
+ *   Device type: ARM Compatible->ARM Cortex-M
  *   Number of bits:     char:   8    short:   16    int:  32
  *                       long:  32    long long:  64
- *                       native word size:  64
+ *                       native word size:  32
  *   Byte ordering: LittleEndian
  *   Signed integer division rounds to: Zero
  *   Shift right on a signed integer as arithmetic shift: on

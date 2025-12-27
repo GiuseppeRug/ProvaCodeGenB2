@@ -1,0 +1,17 @@
+../Core/Src/actions/ActionsModel.c:150:6:ActionsMod_MovingObstacles_Init	16	static
+../Core/Src/actions/ActionsModel.c:161:6:ActionsModel_MovingObstacles	24	static
+../Core/Src/actions/ActionsModel.c:228:24:Actio_checkSafetyFromRotateLeft	24	static
+../Core/Src/actions/ActionsModel.c:240:24:ActionsM_checkSafetyFromForward	24	static
+../Core/Src/actions/ActionsModel.c:269:16:ActionsModel_areAllSpeedsZero	24	static
+../Core/Src/actions/ActionsModel.c:277:16:ActionsMod_trackGyroAngleChange	32	static
+../Core/Src/actions/ActionsModel.c:292:13:enter_internal_BW_FW_SafeAction	24	static
+../Core/Src/actions/ActionsModel.c:341:13:ActionsModel_BW_Forward	24	static
+../Core/Src/actions/ActionsModel.c:535:13:ActionsModel_BW_RotateLeft	24	static
+../Core/Src/actions/ActionsModel.c:656:13:Ac_enter_internal_FW_SafeAction	24	static
+../Core/Src/actions/ActionsModel.c:705:13:ActionsModel_Backward	48	static
+../Core/Src/actions/ActionsModel.c:1120:13:ActionsModel_Forward	24	static
+../Core/Src/actions/ActionsModel.c:1488:13:ActionsModel_RotateLeft	24	static
+../Core/Src/actions/ActionsModel.c:1754:13:ActionsModel_RotateRight	24	static
+../Core/Src/actions/ActionsModel.c:2020:6:ActionsModel_Init	16	static
+../Core/Src/actions/ActionsModel.c:2047:6:ActionsModel_ComputeRoverAction	48	static
+../Core/Src/actions/ActionsModel.c:2403:6:ActionsModel_initialize	24	static

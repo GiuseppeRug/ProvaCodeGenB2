@@ -1,7 +1,9 @@
 #ifndef INC_UART_FRAMES_H_
 #define INC_UART_FRAMES_H_
 
-#include "Board_types.h"
+#include <sensors.h>
+#include <states.h>
+#include <decision.h>
 
 /* --- Dimensioni dei tipi base dei sensori --- */
 
@@ -35,6 +37,6 @@
 /* SetPoint = 2 float */
 #define SETPOINT_FRAME_SIZE (sizeof(BUS_SetPoint))
 /* Decision = 2 int (ENUM_Actuator, ENUM_RoverAction) */
-#define DECISION_FRAME_SIZE ( sizeof(BUS_Decision))
+#define DECISION_FRAME_SIZE ( sizeof(ENUM_Actuator) + sizeof(ENUM_RoverAction) + sizeof(ENUM_SafeAction))
 
 #endif /* INC_UART_FRAMES_H_ */

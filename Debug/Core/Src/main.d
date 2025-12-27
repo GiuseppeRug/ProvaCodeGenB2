@@ -27,10 +27,21 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h \
  ../Core/Inc/usart.h ../Core/Inc/main.h ../Core/Inc/gpio.h \
- ../Core/Inc/Board2.h ../Core/Inc/rtwtypes.h ../Core/Inc/Board_types.h \
- ../Core/Inc/serialize.h ../Core/Inc/deserialize.h \
- ../Core/Inc/UART_frames.h ../Core/Inc/Board_types.h \
- ../Core/Inc/stubFunctions.h ../Core/Inc/print.h ../Core/Inc/usart.h
+ C:/Users/andre/OneDrive\ -\ Università\ di\ Salerno/Desktop/ProvaCodeGenB2/Core/Inc/board2/Board2.h \
+ ../Core/Inc/rtwtypes.h \
+ C:/Users/andre/OneDrive\ -\ Università\ di\ Salerno/Desktop/ProvaCodeGenB2/Core/Inc/board2/Board2_types.h \
+ C:/Users/andre/OneDrive\ -\ Università\ di\ Salerno/Desktop/ProvaCodeGenB2/Core/Inc/bus/sensors.h \
+ C:/Users/andre/OneDrive\ -\ Università\ di\ Salerno/Desktop/ProvaCodeGenB2/Core/Inc/bus/decision.h \
+ C:/Users/andre/OneDrive\ -\ Università\ di\ Salerno/Desktop/ProvaCodeGenB2/Core/Inc/bus/enums.h \
+ C:/Users/andre/OneDrive\ -\ Università\ di\ Salerno/Desktop/ProvaCodeGenB2/Core/Inc/bus/enums.h \
+ C:/Users/andre/OneDrive\ -\ Università\ di\ Salerno/Desktop/ProvaCodeGenB2/Core/Inc/bus/states.h \
+ C:/Users/andre/OneDrive\ -\ Università\ di\ Salerno/Desktop/ProvaCodeGenB2/Core/Inc/bus/sensors.h \
+ C:/Users/andre/OneDrive\ -\ Università\ di\ Salerno/Desktop/ProvaCodeGenB2/Core/Inc/bus/serialize.h \
+ C:/Users/andre/OneDrive\ -\ Università\ di\ Salerno/Desktop/ProvaCodeGenB2/Core/Inc/bus/deserialize.h \
+ C:/Users/andre/OneDrive\ -\ Università\ di\ Salerno/Desktop/ProvaCodeGenB2/Core/Inc/bus/UART_frames.h \
+ ../Core/Inc/stubFunctions.h ../Core/Inc/print.h \
+ C:/Users/andre/OneDrive\ -\ Università\ di\ Salerno/Desktop/ProvaCodeGenB2/Core/Inc/bus/UART_frames.h \
+ ../Core/Inc/usart.h
 ../Core/Inc/main.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:
 ../Core/Inc/stm32g4xx_hal_conf.h:
@@ -62,13 +73,19 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Core/Inc/usart.h:
 ../Core/Inc/main.h:
 ../Core/Inc/gpio.h:
-../Core/Inc/Board2.h:
+C:/Users/andre/OneDrive\ -\ Università\ di\ Salerno/Desktop/ProvaCodeGenB2/Core/Inc/board2/Board2.h:
 ../Core/Inc/rtwtypes.h:
-../Core/Inc/Board_types.h:
-../Core/Inc/serialize.h:
-../Core/Inc/deserialize.h:
-../Core/Inc/UART_frames.h:
-../Core/Inc/Board_types.h:
+C:/Users/andre/OneDrive\ -\ Università\ di\ Salerno/Desktop/ProvaCodeGenB2/Core/Inc/board2/Board2_types.h:
+C:/Users/andre/OneDrive\ -\ Università\ di\ Salerno/Desktop/ProvaCodeGenB2/Core/Inc/bus/sensors.h:
+C:/Users/andre/OneDrive\ -\ Università\ di\ Salerno/Desktop/ProvaCodeGenB2/Core/Inc/bus/decision.h:
+C:/Users/andre/OneDrive\ -\ Università\ di\ Salerno/Desktop/ProvaCodeGenB2/Core/Inc/bus/enums.h:
+C:/Users/andre/OneDrive\ -\ Università\ di\ Salerno/Desktop/ProvaCodeGenB2/Core/Inc/bus/enums.h:
+C:/Users/andre/OneDrive\ -\ Università\ di\ Salerno/Desktop/ProvaCodeGenB2/Core/Inc/bus/states.h:
+C:/Users/andre/OneDrive\ -\ Università\ di\ Salerno/Desktop/ProvaCodeGenB2/Core/Inc/bus/sensors.h:
+C:/Users/andre/OneDrive\ -\ Università\ di\ Salerno/Desktop/ProvaCodeGenB2/Core/Inc/bus/serialize.h:
+C:/Users/andre/OneDrive\ -\ Università\ di\ Salerno/Desktop/ProvaCodeGenB2/Core/Inc/bus/deserialize.h:
+C:/Users/andre/OneDrive\ -\ Università\ di\ Salerno/Desktop/ProvaCodeGenB2/Core/Inc/bus/UART_frames.h:
 ../Core/Inc/stubFunctions.h:
 ../Core/Inc/print.h:
+C:/Users/andre/OneDrive\ -\ Università\ di\ Salerno/Desktop/ProvaCodeGenB2/Core/Inc/bus/UART_frames.h:
 ../Core/Inc/usart.h:

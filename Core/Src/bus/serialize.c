@@ -41,17 +41,23 @@ size_t serializeGlobalState(uint8_t *buf, const BUS_GlobalState *state) {
     return i; /* Idealmente = GLOBALSTATE_FRAME_SIZE */
 }
 
-size_t serializeDecision(uint8_t *buf, const BUS_Decision *state) {
+size_t serializeDecision(uint8_t *buf, const BUS_Decision *decision) {
     size_t i = 0;
 
-    memcpy(&buf[i], &state->actuator, sizeof(ENUM_Actuator));
+    memcpy(&buf[i], &decision->actuator, sizeof(ENUM_Actuator));
     i += sizeof(ENUM_Actuator);
 
-    memcpy(&buf[i], &state->roverAction, sizeof(ENUM_RoverAction));
+    memcpy(&buf[i], &decision->userAction, sizeof(ENUM_UserAction));
+    i += sizeof(ENUM_UserAction);
+
+    memcpy(&buf[i], &decision->roverAction, sizeof(ENUM_RoverAction));
     i += sizeof(ENUM_RoverAction);
 
-    memcpy(&buf[i], &state->safeAction, sizeof(ENUM_SafeAction));
+    memcpy(&buf[i], &decision->safeAction, sizeof(ENUM_SafeAction));
     i += sizeof(ENUM_SafeAction);
+
+    memcpy(&buf[i], &decision->setPoint, sizeof(BUS_SetPoint));
+    i += sizeof(BUS_SetPoint);
 
     return i; /* Idealmente = DECISION_FRAME_SIZE */
 }

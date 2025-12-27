@@ -54,21 +54,26 @@ int deserializeGlobalState(const uint8_t *buf, size_t len, BUS_GlobalState *stat
     return 0;
 }
 
-int deserializeDecision(const uint8_t *buf, size_t len, BUS_Decision *state) {
+int deserializeDecision(const uint8_t *buf, size_t len, BUS_Decision *decision) {
     if (len < DECISION_FRAME_SIZE)
         return -1;
 
     size_t i = 0;
 
-    memcpy(&state->actuator, &buf[i], sizeof(ENUM_Actuator));
+    memcpy(&decision->actuator, &buf[i], sizeof(ENUM_Actuator));
     i += sizeof(ENUM_Actuator);
 
-    memcpy(&state->roverAction, &buf[i], sizeof(ENUM_RoverAction));
+    memcpy(&decision->userAction, &buf[i], sizeof(ENUM_UserAction));
+    i += sizeof(ENUM_UserAction);
+
+    memcpy(&decision->roverAction, &buf[i], sizeof(ENUM_RoverAction));
     i += sizeof(ENUM_RoverAction);
 
-    /* FIX: prima mancava safeAction */
-    memcpy(&state->safeAction, &buf[i], sizeof(ENUM_SafeAction));
+    memcpy(&decision->safeAction, &buf[i], sizeof(ENUM_SafeAction));
     i += sizeof(ENUM_SafeAction);
+
+    memcpy(&decision->setPoint, &buf[i], sizeof(BUS_SetPoint));
+    i += sizeof(BUS_SetPoint);
 
     return 0;
 }

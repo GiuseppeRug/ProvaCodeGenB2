@@ -1,0 +1,5 @@
+../Core/Src/board2/Board2.c:73:22:Board2_actuatorSelection	2
+../Core/Src/board2/Board2.c:86:24:Board2_computeUserAction	5
+../Core/Src/board2/Board2.c:104:6:Board2_step	37
+../Core/Src/board2/Board2.c:379:6:Board2_initialize	1
+../Core/Src/board2/Board2.c:395:6:Board2_terminate	1

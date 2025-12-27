@@ -7,26 +7,29 @@
  *
  * Code generated for Simulink model 'Board2'.
  *
- * Model version                  : 2.62
+ * Model version                  : 2.71
  * Simulink Coder version         : 24.1 (R2024a) 19-Nov-2023
- * C/C++ source code generated on : Tue Dec 23 17:27:05 2025
+ * C/C++ source code generated on : Sat Dec 27 17:56:45 2025
  *
  * Target selection: ert.tlc
- * Embedded hardware selection: Intel->x86-64 (Windows64)
+ * Embedded hardware selection: ARM Compatible->ARM Cortex-M
  * Code generation objectives: Unspecified
  * Validation result: Not run
  */
 
 #ifndef Board2_h_
 #define Board2_h_
-
 #ifndef Board2_COMMON_INCLUDES_
 #define Board2_COMMON_INCLUDES_
 #include "rtwtypes.h"
 #include "math.h"
 #endif                                 /* Board2_COMMON_INCLUDES_ */
 
-#include <Board_types.h>
+#include "Board2_types.h"
+#include "sensors.h"
+#include "decision.h"
+#include "enums.h"
+#include "states.h"
 
 /* Macros for accessing real-time model data structure */
 #ifndef rtmGetErrorStatus
@@ -37,18 +40,27 @@
 #define rtmSetErrorStatus(rtm, val)    ((rtm)->errorStatus = (val))
 #endif
 
+#ifndef rtmGetErrorStatusPointer
+#define rtmGetErrorStatusPointer(rtm)  ((const char_T **)(&((rtm)->errorStatus)))
+#endif
+
 /* user code (top of header file) */
 #include "serialize.h"
 #include "deserialize.h"
 #include "stubFunctions.h"
 
+/* Block signals (default storage) */
+typedef struct {
+  BUS_GlobalState board2GlobalState;   /* '<Root>/SupervisorB2' */
+} B_Board2_T;
+
 /* Block states (default storage) for system '<Root>' */
 typedef struct {
   BUS_GlobalState board1GlobalState;   /* '<Root>/SupervisorB2' */
-  BUS_LocalStateB1 board1LocalState;   /* '<Root>/SupervisorB2' */
-  BUS_LocalStateB2 board2LocalState;   /* '<Root>/SupervisorB2' */
   BUS_Decision board2Decision;         /* '<Root>/SupervisorB2' */
   BUS_Decision board1Decision;         /* '<Root>/SupervisorB2' */
+  BUS_LocalStateB1 board1LocalState;   /* '<Root>/SupervisorB2' */
+  BUS_LocalStateB2 board2LocalState;   /* '<Root>/SupervisorB2' */
   real_T continua_start;               /* '<Root>/SupervisorB2' */
   uint32_T exit_port_index_CommunicationPh;/* '<Root>/SupervisorB2' */
   uint32_T exit_port_index_ComputeDecision;/* '<Root>/SupervisorB2' */
@@ -84,21 +96,24 @@ typedef struct {
   BUS_Sonar sonar;                     /* '<Root>/sonar' */
   real32_T gyroscope;                  /* '<Root>/gyroscope' */
   BUS_RemoteController remoteController;/* '<Root>/remoteController' */
-  BUS_SetPoint setPoint;               /* '<Root>/setPoint' */
-  ENUM_RoverAction roverAction;        /* '<Root>/roverAction' */
-  ENUM_SafeAction safeAction;          /* '<Root>/safeAction' */
 } ExtU_Board2_T;
 
 /* External outputs (root outports fed by signals with default storage) */
 typedef struct {
+  BUS_SetPoint setPoint;               /* '<Root>/setPoint' */
+  ENUM_RoverAction roverAction;        /* '<Root>/roverAction' */
+  ENUM_SafeAction safeAction;          /* '<Root>/safeAction' */
+  ENUM_TrackingObstacles statusObstacles;/* '<Root>/statusObstacles' */
   ENUM_UserAction currentUserAction;   /* '<Root>/currentUserAction' */
-  BUS_GlobalState board2GlobalState;   /* '<Root>/board2GlobalState' */
 } ExtY_Board2_T;
 
 /* Real-time Model Data Structure */
 struct tag_RTM_Board2_T {
-  const char_T * volatile errorStatus;
+  const char_T *errorStatus;
 };
+
+/* Block signals (default storage) */
+extern B_Board2_T Board2_B;
 
 /* Block states (default storage) */
 extern DW_Board2_T Board2_DW;

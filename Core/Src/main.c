@@ -24,6 +24,8 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "Board2.h"
+#include "sensors.h"
+#include "decision.h"
 #include "print.h"
 /* USER CODE END Includes */
 
@@ -106,9 +108,9 @@ int main(void) {
 	Board2_U.remoteController = (BUS_RemoteController) {13, 13, 13};
 
 	// Coming from ModelAction
-	Board2_U.roverAction = RA_IDLE;
-	Board2_U.safeAction = RA_IDLE;
-	Board2_U.setPoint = (BUS_SetPoint ) { 0.0f, 0.0f };
+	Board2_Y.roverAction = RA_IDLE;
+	Board2_Y.safeAction = RA_IDLE;
+	Board2_Y.setPoint = (BUS_SetPoint ) { 0.0f, 0.0f };
 
 	// Continua
 	Board2_U.continua = 0;

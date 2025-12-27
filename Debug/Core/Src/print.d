@@ -1,6 +1,11 @@
 Core/Src/print.o: ../Core/Src/print.c ../Core/Inc/print.h \
- ../Core/Inc/UART_frames.h ../Core/Inc/Board_types.h \
- ../Core/Inc/rtwtypes.h ../Core/Inc/usart.h ../Core/Inc/main.h \
+ C:/Users/andre/OneDrive\ -\ Università\ di\ Salerno/Desktop/ProvaCodeGenB2/Core/Inc/bus/UART_frames.h \
+ C:/Users/andre/OneDrive\ -\ Università\ di\ Salerno/Desktop/ProvaCodeGenB2/Core/Inc/bus/sensors.h \
+ C:/Users/andre/OneDrive\ -\ Università\ di\ Salerno/Desktop/ProvaCodeGenB2/Core/Inc/bus/states.h \
+ C:/Users/andre/OneDrive\ -\ Università\ di\ Salerno/Desktop/ProvaCodeGenB2/Core/Inc/bus/sensors.h \
+ C:/Users/andre/OneDrive\ -\ Università\ di\ Salerno/Desktop/ProvaCodeGenB2/Core/Inc/bus/decision.h \
+ C:/Users/andre/OneDrive\ -\ Università\ di\ Salerno/Desktop/ProvaCodeGenB2/Core/Inc/bus/enums.h \
+ ../Core/Inc/usart.h ../Core/Inc/main.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h \
  ../Core/Inc/stm32g4xx_hal_conf.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc.h \
@@ -29,9 +34,12 @@ Core/Src/print.o: ../Core/Src/print.c ../Core/Inc/print.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h
 ../Core/Inc/print.h:
-../Core/Inc/UART_frames.h:
-../Core/Inc/Board_types.h:
-../Core/Inc/rtwtypes.h:
+C:/Users/andre/OneDrive\ -\ Università\ di\ Salerno/Desktop/ProvaCodeGenB2/Core/Inc/bus/UART_frames.h:
+C:/Users/andre/OneDrive\ -\ Università\ di\ Salerno/Desktop/ProvaCodeGenB2/Core/Inc/bus/sensors.h:
+C:/Users/andre/OneDrive\ -\ Università\ di\ Salerno/Desktop/ProvaCodeGenB2/Core/Inc/bus/states.h:
+C:/Users/andre/OneDrive\ -\ Università\ di\ Salerno/Desktop/ProvaCodeGenB2/Core/Inc/bus/sensors.h:
+C:/Users/andre/OneDrive\ -\ Università\ di\ Salerno/Desktop/ProvaCodeGenB2/Core/Inc/bus/decision.h:
+C:/Users/andre/OneDrive\ -\ Università\ di\ Salerno/Desktop/ProvaCodeGenB2/Core/Inc/bus/enums.h:
 ../Core/Inc/usart.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:

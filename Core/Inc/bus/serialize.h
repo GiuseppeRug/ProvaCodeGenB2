@@ -1,7 +1,9 @@
 #ifndef INC_SERIALIZE_H_
 #define INC_SERIALIZE_H_
 
-#include <Board_types.h>
+#include <sensors.h>
+#include <states.h>
+#include <decision.h>
 #include <stddef.h>
 #include <stdint.h>
 
