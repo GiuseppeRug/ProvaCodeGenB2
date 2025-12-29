@@ -182,6 +182,7 @@ void Board2_step(void)
         Board2_DW.is_ExchangeDecision = Board2_IN_D_Receive;
 
         /* Pronto a ricevere */
+        Board2_DW.received = 0;
         UartReceiveIT(&Board2_DW.rx_buffer[0], Board2_DW.rxPayload);
       }
       break;
@@ -200,7 +201,7 @@ void Board2_step(void)
           serializeDecision(&Board2_DW.tx_buffer[0], &Board2_DW.board2Decision);
           Board2_DW.is_ExchangeDecision = Board2_IN_Transmit;
 
-          /*  Aspettando la disponibilità del partner per trasmettere */
+          /*  Aspettando la disponibilitï¿½ del partner per trasmettere */
           Board2_DW.is_Transmit = Board2_IN_ReceivingRTR;
         }
         break;
@@ -245,6 +246,7 @@ void Board2_step(void)
         Board2_DW.is_ExchangeGlobalState = Board2_IN_GL_Receive;
 
         /* Pronto a ricevere */
+        Board2_DW.received = 0;
         UartReceiveIT(&Board2_DW.rx_buffer[0], Board2_DW.rxPayload);
         break;
 
@@ -261,7 +263,7 @@ void Board2_step(void)
                                &Board2_B.board2GlobalState);
           Board2_DW.is_ExchangeGlobalState = Board2_IN_GL_Transmit;
 
-          /*  Aspettando la disponibilità del partner per trasmettere */
+          /*  Aspettando la disponibilitï¿½ del partner per trasmettere */
           Board2_DW.is_GL_Transmit = Board2_IN_ReceivingRTR;
         }
         break;
@@ -311,7 +313,7 @@ void Board2_step(void)
                                 &Board2_DW.board2LocalState);
           Board2_DW.is_ExchangeLocalState = Board2_IN_LS_Transmit;
 
-          /*  Aspettando la disponibilità del partner per trasmettere */
+          /*  Aspettando la disponibilitï¿½ del partner per trasmettere */
           Board2_DW.is_LS_Transmit = Board2_IN_ReceivingRTR;
         }
       } else {
@@ -369,6 +371,7 @@ void Board2_step(void)
     Board2_DW.is_ExchangeLocalState = Board2_IN_LS_Receive;
 
     /* Pronto a ricevere */
+    Board2_DW.received = 0;
     UartReceiveIT(&Board2_DW.rx_buffer[0], Board2_DW.rxPayload);
   }
 

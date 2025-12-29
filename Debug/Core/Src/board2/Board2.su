@@ -1,5 +1,5 @@
 ../Core/Src/board2/Board2.c:73:22:Board2_actuatorSelection	24	static
 ../Core/Src/board2/Board2.c:86:24:Board2_computeUserAction	24	static
 ../Core/Src/board2/Board2.c:104:6:Board2_step	48	static
-../Core/Src/board2/Board2.c:379:6:Board2_initialize	8	static
-../Core/Src/board2/Board2.c:395:6:Board2_terminate	4	static
+../Core/Src/board2/Board2.c:382:6:Board2_initialize	8	static
+../Core/Src/board2/Board2.c:398:6:Board2_terminate	4	static
