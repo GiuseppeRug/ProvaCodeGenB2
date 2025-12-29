@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'ActionsModel'.
  *
- * Model version                  : 2.23
- * Simulink Coder version         : 24.1 (R2024a) 19-Nov-2023
- * C/C++ source code generated on : Sat Dec 27 17:56:20 2025
+ * Model version                  : 2.25
+ * Simulink Coder version         : 24.2 (R2024b) 21-Jun-2024
+ * C/C++ source code generated on : Mon Dec 29 17:18:52 2025
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -51,7 +51,7 @@
 #define ActionsMod_IN_BW_FW_BrakingHard ((uint8_T)1U)
 #define ActionsMod_IN_BW_RR_RotateRight ((uint8_T)2U)
 #define ActionsMod_IN_FW_SR_RotateRight ((uint8_T)5U)
-#define ActionsMod_IN_NO_ACTIVE_CHILD_j ((uint8_T)0U)
+#define ActionsMod_IN_NO_ACTIVE_CHILD_d ((uint8_T)0U)
 #define ActionsMode_IN_BW_FW_SafeAction ((uint8_T)2U)
 #define ActionsMode_IN_BW_FW_UserAction ((uint8_T)3U)
 #define ActionsMode_IN_BW_RL_SafeAction ((uint8_T)2U)
@@ -62,7 +62,7 @@
 #define ActionsMode_IN_FW_SL_RotateLeft ((uint8_T)3U)
 #define ActionsMode_IN_FW_SL_StopMotors ((uint8_T)4U)
 #define ActionsMode_IN_FW_SR_StopMotors ((uint8_T)6U)
-#define ActionsMode_OBSTACLE_DETECTED_g ((uint16_T)300U)
+#define ActionsMode_OBSTACLE_DETECTED_f ((uint16_T)300U)
 #define ActionsModel_BACKWARD_DEGREE   (180.0F)
 #define ActionsModel_CRITICAL_DISTANCE ((uint16_T)75U)
 #define ActionsModel_IN_BW_Forward     ((uint8_T)1U)
@@ -242,7 +242,7 @@ static ENUM_SafeAction ActionsM_checkSafetyFromForward(ENUM_TrackingObstacles
 {
   ENUM_SafeAction emergencyAction;
   emergencyAction = SA_NONE;
-  if (sonarFront <= ActionsMode_OBSTACLE_DETECTED_g) {
+  if (sonarFront <= ActionsMode_OBSTACLE_DETECTED_f) {
     if (sonarFront <= ActionsModel_CRITICAL_DISTANCE) {
       emergencyAction = SA_BRAKING_HARD;
     } else {
@@ -349,7 +349,7 @@ static void ActionsModel_BW_Forward(const ENUM_UserAction *rtu_currentUserAction
   switch (ActionsModel_DW.is_BW_Forward) {
    case Action_IN_BW_FW_EndedSafeAction:
     if (*rtu_currentUserAction != UA_BACKWARD) {
-      ActionsModel_DW.is_BW_Forward = ActionsMod_IN_NO_ACTIVE_CHILD_j;
+      ActionsModel_DW.is_BW_Forward = ActionsMod_IN_NO_ACTIVE_CHILD_d;
       ActionsModel_DW.exit_port_index_BW_Forward = 2U;
     } else if (*rty_safeAction == SA_NONE) {
       /* l'utente vorrebbe continuare ad andare avanti e non c'è più l'ostacolo */
@@ -378,7 +378,7 @@ static void ActionsModel_BW_Forward(const ENUM_UserAction *rtu_currentUserAction
      case ActionsMod_IN_BW_FW_BrakingHard:
       if (ActionsModel_areAllSpeedsZero(rtu_speed->motor1, rtu_speed->motor2,
            rtu_speed->motor3, rtu_speed->motor4) != 0) {
-        ActionsModel_DW.is_BW_FW_SafeAction = ActionsMod_IN_NO_ACTIVE_CHILD_j;
+        ActionsModel_DW.is_BW_FW_SafeAction = ActionsMod_IN_NO_ACTIVE_CHILD_d;
         ActionsModel_DW.exit_port_index_BW_FW_SafeActio = 2U;
       }
       break;
@@ -386,7 +386,7 @@ static void ActionsModel_BW_Forward(const ENUM_UserAction *rtu_currentUserAction
      case ActionsM_IN_BW_FW_BrakingSmooth:
       if (ActionsModel_areAllSpeedsZero(rtu_speed->motor1, rtu_speed->motor2,
            rtu_speed->motor3, rtu_speed->motor4) != 0) {
-        ActionsModel_DW.is_BW_FW_SafeAction = ActionsMod_IN_NO_ACTIVE_CHILD_j;
+        ActionsModel_DW.is_BW_FW_SafeAction = ActionsMod_IN_NO_ACTIVE_CHILD_d;
         ActionsModel_DW.exit_port_index_BW_FW_SafeActio = 2U;
       } else if (*rty_safeAction == SA_BRAKING_HARD) {
         ActionsModel_DW.is_BW_FW_SafeAction = ActionsMod_IN_BW_FW_BrakingHard;
@@ -402,7 +402,7 @@ static void ActionsModel_BW_Forward(const ENUM_UserAction *rtu_currentUserAction
       if (ActionsMod_trackGyroAngleChange(ActionsModel_DW.initial_degrees,
            ActionsModel_DW.previousGyroscope, *rtu_gyroscope,
            ActionsModel_SWERVE_DEGREE) != 0) {
-        ActionsModel_DW.is_BW_FW_SafeAction = ActionsMod_IN_NO_ACTIVE_CHILD_j;
+        ActionsModel_DW.is_BW_FW_SafeAction = ActionsMod_IN_NO_ACTIVE_CHILD_d;
         ActionsModel_DW.exit_port_index_BW_FW_SafeActio = 2U;
       } else {
         ActionsModel_DW.previousGyroscope = *rtu_gyroscope;
@@ -426,7 +426,7 @@ static void ActionsModel_BW_Forward(const ENUM_UserAction *rtu_currentUserAction
       if (ActionsMod_trackGyroAngleChange(ActionsModel_DW.initial_degrees,
            ActionsModel_DW.previousGyroscope, *rtu_gyroscope,
            ActionsModel_SWERVE_DEGREE) != 0) {
-        ActionsModel_DW.is_BW_FW_SafeAction = ActionsMod_IN_NO_ACTIVE_CHILD_j;
+        ActionsModel_DW.is_BW_FW_SafeAction = ActionsMod_IN_NO_ACTIVE_CHILD_d;
         ActionsModel_DW.exit_port_index_BW_FW_SafeActio = 2U;
       } else {
         ActionsModel_DW.previousGyroscope = *rtu_gyroscope;
@@ -451,7 +451,7 @@ static void ActionsModel_BW_Forward(const ENUM_UserAction *rtu_currentUserAction
     if (ActionsModel_DW.exit_port_index_BW_FW_SafeActio == 2U) {
       ActionsModel_DW.exit_port_index_BW_FW_SafeActio = 0U;
       if (*rtu_currentUserAction != UA_BACKWARD) {
-        ActionsModel_DW.is_BW_Forward = ActionsMod_IN_NO_ACTIVE_CHILD_j;
+        ActionsModel_DW.is_BW_Forward = ActionsMod_IN_NO_ACTIVE_CHILD_d;
         ActionsModel_DW.exit_port_index_BW_Forward = 2U;
       } else if (*rty_safeAction == SA_NONE) {
         /* l'utente vorrebbe continuare ad andare avanti e non c'è più l'ostacolo */
@@ -504,7 +504,7 @@ static void ActionsModel_BW_Forward(const ENUM_UserAction *rtu_currentUserAction
       /* Chart: '<Root>/MovingObstacles' */
       ActionsModel_MovingObstacles(0, rtu_sonar, rty_statusObstacles,
         &ActionsModel_DW.sf_MovingObstacles);
-      ActionsModel_DW.is_BW_Forward = ActionsMod_IN_NO_ACTIVE_CHILD_j;
+      ActionsModel_DW.is_BW_Forward = ActionsMod_IN_NO_ACTIVE_CHILD_d;
       ActionsModel_DW.exit_port_index_BW_Forward = 2U;
     } else {
       /* Chart: '<Root>/MovingObstacles' */
@@ -526,7 +526,7 @@ static void ActionsModel_BW_Forward(const ENUM_UserAction *rtu_currentUserAction
 
   if (ActionsModel_DW.exit_port_index_BW_Forward == 2U) {
     ActionsModel_DW.exit_port_index_BW_Forward = 0U;
-    ActionsModel_DW.is_Backward = ActionsMod_IN_NO_ACTIVE_CHILD_j;
+    ActionsModel_DW.is_Backward = ActionsMod_IN_NO_ACTIVE_CHILD_d;
     ActionsModel_DW.exit_port_index_Backward = 2U;
   }
 }
@@ -542,7 +542,7 @@ static void ActionsModel_BW_RotateLeft(const ENUM_UserAction
   switch (ActionsModel_DW.is_BW_RotateLeft) {
    case Action_IN_BW_RL_EndedSafeAction:
     if (*rtu_currentUserAction != UA_BACKWARD) {
-      ActionsModel_DW.is_BW_RotateLeft = ActionsMod_IN_NO_ACTIVE_CHILD_j;
+      ActionsModel_DW.is_BW_RotateLeft = ActionsMod_IN_NO_ACTIVE_CHILD_d;
       ActionsModel_DW.exit_port_index_BW_RotateLeft = 2U;
     } else if (*rty_safeAction == SA_NONE) {
       /* l'utente vorrebbe ruotare a SX e non c'è più l'ostacolo */
@@ -571,7 +571,7 @@ static void ActionsModel_BW_RotateLeft(const ENUM_UserAction
     if (ActionsModel_DW.exit_port_index_BW_RL_SafeActio == 2U) {
       ActionsModel_DW.exit_port_index_BW_RL_SafeActio = 0U;
       if (*rtu_currentUserAction != UA_BACKWARD) {
-        ActionsModel_DW.is_BW_RotateLeft = ActionsMod_IN_NO_ACTIVE_CHILD_j;
+        ActionsModel_DW.is_BW_RotateLeft = ActionsMod_IN_NO_ACTIVE_CHILD_d;
         ActionsModel_DW.exit_port_index_BW_RotateLeft = 2U;
       } else if (*rty_safeAction == SA_NONE) {
         /* l'utente vorrebbe ruotare a SX e non c'è più l'ostacolo */
@@ -609,12 +609,12 @@ static void ActionsModel_BW_RotateLeft(const ENUM_UserAction
       rty_setPoint->rightAxis = 0.0F;
       rty_setPoint->leftAxis = 0.0F;
     } else if (*rtu_currentUserAction != UA_BACKWARD) {
-      ActionsModel_DW.is_BW_RotateLeft = ActionsMod_IN_NO_ACTIVE_CHILD_j;
+      ActionsModel_DW.is_BW_RotateLeft = ActionsMod_IN_NO_ACTIVE_CHILD_d;
       ActionsModel_DW.exit_port_index_BW_RotateLeft = 2U;
     } else if (ActionsMod_trackGyroAngleChange(ActionsModel_DW.initial_degrees,
                 ActionsModel_DW.previousGyroscope, *rtu_gyroscope,
                 ActionsModel_BACKWARD_DEGREE) != 0) {
-      ActionsModel_DW.is_BW_RotateLeft = ActionsMod_IN_NO_ACTIVE_CHILD_j;
+      ActionsModel_DW.is_BW_RotateLeft = ActionsMod_IN_NO_ACTIVE_CHILD_d;
       ActionsModel_DW.exit_port_index_BW_RotateLeft = 3U;
     } else {
       *rty_roverAction = RA_ROTATE_LEFT;
@@ -633,7 +633,7 @@ static void ActionsModel_BW_RotateLeft(const ENUM_UserAction
   switch (ActionsModel_DW.exit_port_index_BW_RotateLeft) {
    case 2:
     ActionsModel_DW.exit_port_index_BW_RotateLeft = 0U;
-    ActionsModel_DW.is_Backward = ActionsMod_IN_NO_ACTIVE_CHILD_j;
+    ActionsModel_DW.is_Backward = ActionsMod_IN_NO_ACTIVE_CHILD_d;
     ActionsModel_DW.exit_port_index_Backward = 2U;
     break;
 
@@ -736,7 +736,7 @@ static void ActionsModel_Backward(const ENUM_UserAction *rtu_currentUserAction,
        */
       /* Chart: '<Root>/RoverAction' */
       if (*rtu_currentUserAction != UA_BACKWARD) {
-        ActionsModel_DW.is_BW_RR_RotateRight = ActionsMod_IN_NO_ACTIVE_CHILD_j;
+        ActionsModel_DW.is_BW_RR_RotateRight = ActionsMod_IN_NO_ACTIVE_CHILD_d;
         ActionsModel_DW.exit_port_index_BW_RR_RotateRig = 2U;
       } else if (*rty_safeAction == SA_NONE) {
         /* l'utente vorrebbe continuare a ruotare a DX e non c'è più l'ostacolo */
@@ -777,7 +777,7 @@ static void ActionsModel_Backward(const ENUM_UserAction *rtu_currentUserAction,
          */
         /* Chart: '<Root>/RoverAction' */
         if (*rtu_currentUserAction != UA_BACKWARD) {
-          ActionsModel_DW.is_BW_RR_RotateRight = ActionsMod_IN_NO_ACTIVE_CHILD_j;
+          ActionsModel_DW.is_BW_RR_RotateRight = ActionsMod_IN_NO_ACTIVE_CHILD_d;
           ActionsModel_DW.exit_port_index_BW_RR_RotateRig = 2U;
         } else if (*rty_safeAction == SA_NONE) {
           /* l'utente vorrebbe continuare a ruotare a DX e non c'è più l'ostacolo */
@@ -821,12 +821,12 @@ static void ActionsModel_Backward(const ENUM_UserAction *rtu_currentUserAction,
         rty_setPoint->rightAxis = 0.0F;
         rty_setPoint->leftAxis = 0.0F;
       } else if (*rtu_currentUserAction != UA_BACKWARD) {
-        ActionsModel_DW.is_BW_RR_RotateRight = ActionsMod_IN_NO_ACTIVE_CHILD_j;
+        ActionsModel_DW.is_BW_RR_RotateRight = ActionsMod_IN_NO_ACTIVE_CHILD_d;
         ActionsModel_DW.exit_port_index_BW_RR_RotateRig = 2U;
       } else if (ActionsMod_trackGyroAngleChange(ActionsModel_DW.initial_degrees,
                   ActionsModel_DW.previousGyroscope, *rtu_gyroscope,
                   ActionsModel_BACKWARD_DEGREE) != 0) {
-        ActionsModel_DW.is_BW_RR_RotateRight = ActionsMod_IN_NO_ACTIVE_CHILD_j;
+        ActionsModel_DW.is_BW_RR_RotateRight = ActionsMod_IN_NO_ACTIVE_CHILD_d;
         ActionsModel_DW.exit_port_index_BW_RR_RotateRig = 3U;
       } else {
         /*  Degrees */
@@ -848,7 +848,7 @@ static void ActionsModel_Backward(const ENUM_UserAction *rtu_currentUserAction,
     switch (ActionsModel_DW.exit_port_index_BW_RR_RotateRig) {
      case 2:
       ActionsModel_DW.exit_port_index_BW_RR_RotateRig = 0U;
-      ActionsModel_DW.is_Backward = ActionsMod_IN_NO_ACTIVE_CHILD_j;
+      ActionsModel_DW.is_Backward = ActionsMod_IN_NO_ACTIVE_CHILD_d;
       ActionsModel_DW.exit_port_index_Backward = 2U;
       break;
 
@@ -890,7 +890,7 @@ static void ActionsModel_Backward(const ENUM_UserAction *rtu_currentUserAction,
      */
     /* Chart: '<Root>/RoverAction' */
     if (*rtu_currentUserAction != UA_BACKWARD) {
-      ActionsModel_DW.is_Backward = ActionsMod_IN_NO_ACTIVE_CHILD_j;
+      ActionsModel_DW.is_Backward = ActionsMod_IN_NO_ACTIVE_CHILD_d;
       ActionsModel_DW.exit_port_index_Backward = 2U;
     } else if (ActionsModel_areAllSpeedsZero(rtu_speed->motor1,
                 rtu_speed->motor2, rtu_speed->motor3, rtu_speed->motor4) != 0) {
@@ -959,7 +959,7 @@ static void ActionsModel_Backward(const ENUM_UserAction *rtu_currentUserAction,
     /* Chart: '<Root>/RoverAction' */
     /* case IN_BW_StopMotors2: */
     if (*rtu_currentUserAction != UA_BACKWARD) {
-      ActionsModel_DW.is_Backward = ActionsMod_IN_NO_ACTIVE_CHILD_j;
+      ActionsModel_DW.is_Backward = ActionsMod_IN_NO_ACTIVE_CHILD_d;
       ActionsModel_DW.exit_port_index_Backward = 2U;
     } else if (ActionsModel_areAllSpeedsZero(rtu_speed->motor1,
                 rtu_speed->motor2, rtu_speed->motor3, rtu_speed->motor4) != 0) {
@@ -1138,7 +1138,7 @@ static void ActionsModel_Forward(const ENUM_UserAction *rtu_currentUserAction,
      */
     /* Chart: '<Root>/RoverAction' */
     if (*rtu_currentUserAction != UA_FORWARD) {
-      ActionsModel_DW.is_Forward = ActionsMod_IN_NO_ACTIVE_CHILD_j;
+      ActionsModel_DW.is_Forward = ActionsMod_IN_NO_ACTIVE_CHILD_d;
       ActionsModel_DW.exit_port_index_Forward = 2U;
     } else if (*rty_safeAction == SA_NONE) {
       /* l'utente vorrebbe continuare ad andare avanti e non c'è più l'ostacolo */
@@ -1173,7 +1173,7 @@ static void ActionsModel_Forward(const ENUM_UserAction *rtu_currentUserAction,
       /* Chart: '<Root>/RoverAction' */
       if (ActionsModel_areAllSpeedsZero(rtu_speed->motor1, rtu_speed->motor2,
            rtu_speed->motor3, rtu_speed->motor4) != 0) {
-        ActionsModel_DW.is_FW_SafeAction = ActionsMod_IN_NO_ACTIVE_CHILD_j;
+        ActionsModel_DW.is_FW_SafeAction = ActionsMod_IN_NO_ACTIVE_CHILD_d;
         ActionsModel_DW.exit_port_index_FW_SafeAction = 2U;
       }
 
@@ -1187,7 +1187,7 @@ static void ActionsModel_Forward(const ENUM_UserAction *rtu_currentUserAction,
       /* Chart: '<Root>/RoverAction' */
       if (ActionsModel_areAllSpeedsZero(rtu_speed->motor1, rtu_speed->motor2,
            rtu_speed->motor3, rtu_speed->motor4) != 0) {
-        ActionsModel_DW.is_FW_SafeAction = ActionsMod_IN_NO_ACTIVE_CHILD_j;
+        ActionsModel_DW.is_FW_SafeAction = ActionsMod_IN_NO_ACTIVE_CHILD_d;
         ActionsModel_DW.exit_port_index_FW_SafeAction = 2U;
       } else if (*rty_safeAction == SA_BRAKING_HARD) {
         ActionsModel_DW.is_FW_SafeAction = ActionsModel_IN_FW_BrakingHard;
@@ -1209,7 +1209,7 @@ static void ActionsModel_Forward(const ENUM_UserAction *rtu_currentUserAction,
       if (ActionsMod_trackGyroAngleChange(ActionsModel_DW.initial_degrees,
            ActionsModel_DW.previousGyroscope, *rtu_gyroscope,
            ActionsModel_SWERVE_DEGREE) != 0) {
-        ActionsModel_DW.is_FW_SafeAction = ActionsMod_IN_NO_ACTIVE_CHILD_j;
+        ActionsModel_DW.is_FW_SafeAction = ActionsMod_IN_NO_ACTIVE_CHILD_d;
         ActionsModel_DW.exit_port_index_FW_SafeAction = 2U;
       } else {
         ActionsModel_DW.previousGyroscope = *rtu_gyroscope;
@@ -1245,7 +1245,7 @@ static void ActionsModel_Forward(const ENUM_UserAction *rtu_currentUserAction,
       if (ActionsMod_trackGyroAngleChange(ActionsModel_DW.initial_degrees,
            ActionsModel_DW.previousGyroscope, *rtu_gyroscope,
            ActionsModel_SWERVE_DEGREE) != 0) {
-        ActionsModel_DW.is_FW_SafeAction = ActionsMod_IN_NO_ACTIVE_CHILD_j;
+        ActionsModel_DW.is_FW_SafeAction = ActionsMod_IN_NO_ACTIVE_CHILD_d;
         ActionsModel_DW.exit_port_index_FW_SafeAction = 2U;
       } else {
         ActionsModel_DW.previousGyroscope = *rtu_gyroscope;
@@ -1283,7 +1283,7 @@ static void ActionsModel_Forward(const ENUM_UserAction *rtu_currentUserAction,
        */
       /* Chart: '<Root>/RoverAction' */
       if (*rtu_currentUserAction != UA_FORWARD) {
-        ActionsModel_DW.is_Forward = ActionsMod_IN_NO_ACTIVE_CHILD_j;
+        ActionsModel_DW.is_Forward = ActionsMod_IN_NO_ACTIVE_CHILD_d;
         ActionsModel_DW.exit_port_index_Forward = 2U;
       } else if (*rty_safeAction == SA_NONE) {
         /* l'utente vorrebbe continuare ad andare avanti e non c'è più l'ostacolo */
@@ -1342,7 +1342,7 @@ static void ActionsModel_Forward(const ENUM_UserAction *rtu_currentUserAction,
       /* Chart: '<Root>/MovingObstacles' */
       ActionsModel_MovingObstacles(0, rtu_sonar, rty_statusObstacles,
         &ActionsModel_DW.sf_MovingObstacles);
-      ActionsModel_DW.is_Forward = ActionsMod_IN_NO_ACTIVE_CHILD_j;
+      ActionsModel_DW.is_Forward = ActionsMod_IN_NO_ACTIVE_CHILD_d;
       ActionsModel_DW.exit_port_index_Forward = 2U;
     } else {
       /* Chart: '<Root>/MovingObstacles' */
@@ -1506,8 +1506,8 @@ static void ActionsModel_RotateLeft(const ENUM_UserAction *rtu_currentUserAction
        */
       /* Chart: '<Root>/RoverAction' */
       if (*rtu_currentUserAction != UA_ROTATE_LEFT) {
-        ActionsModel_DW.is_RL_RotateLeft = ActionsMod_IN_NO_ACTIVE_CHILD_j;
-        ActionsModel_DW.is_RotateLeft = ActionsMod_IN_NO_ACTIVE_CHILD_j;
+        ActionsModel_DW.is_RL_RotateLeft = ActionsMod_IN_NO_ACTIVE_CHILD_d;
+        ActionsModel_DW.is_RotateLeft = ActionsMod_IN_NO_ACTIVE_CHILD_d;
         ActionsModel_DW.exit_port_index_RotateLeft = 2U;
       } else if (*rty_safeAction == SA_NONE) {
         /* l'utente vorrebbe continuare a ruotare a SX e non c'è più l'ostacolo */
@@ -1542,8 +1542,8 @@ static void ActionsModel_RotateLeft(const ENUM_UserAction *rtu_currentUserAction
          */
         /* Chart: '<Root>/RoverAction' */
         if (*rtu_currentUserAction != UA_ROTATE_LEFT) {
-          ActionsModel_DW.is_RL_RotateLeft = ActionsMod_IN_NO_ACTIVE_CHILD_j;
-          ActionsModel_DW.is_RotateLeft = ActionsMod_IN_NO_ACTIVE_CHILD_j;
+          ActionsModel_DW.is_RL_RotateLeft = ActionsMod_IN_NO_ACTIVE_CHILD_d;
+          ActionsModel_DW.is_RotateLeft = ActionsMod_IN_NO_ACTIVE_CHILD_d;
           ActionsModel_DW.exit_port_index_RotateLeft = 2U;
         } else if (*rty_safeAction == SA_NONE) {
           /* l'utente vorrebbe continuare a ruotare a SX e non c'è più l'ostacolo */
@@ -1581,8 +1581,8 @@ static void ActionsModel_RotateLeft(const ENUM_UserAction *rtu_currentUserAction
         rty_setPoint->rightAxis = 0.0F;
         rty_setPoint->leftAxis = 0.0F;
       } else if (*rtu_currentUserAction != UA_ROTATE_LEFT) {
-        ActionsModel_DW.is_RL_RotateLeft = ActionsMod_IN_NO_ACTIVE_CHILD_j;
-        ActionsModel_DW.is_RotateLeft = ActionsMod_IN_NO_ACTIVE_CHILD_j;
+        ActionsModel_DW.is_RL_RotateLeft = ActionsMod_IN_NO_ACTIVE_CHILD_d;
+        ActionsModel_DW.is_RotateLeft = ActionsMod_IN_NO_ACTIVE_CHILD_d;
         ActionsModel_DW.exit_port_index_RotateLeft = 2U;
       } else {
         *rty_roverAction = RA_ROTATE_LEFT;
@@ -1603,7 +1603,7 @@ static void ActionsModel_RotateLeft(const ENUM_UserAction *rtu_currentUserAction
     /* Chart: '<Root>/RoverAction' */
     /* case IN_RL_StopMotors: */
   } else if (*rtu_currentUserAction != UA_ROTATE_LEFT) {
-    ActionsModel_DW.is_RotateLeft = ActionsMod_IN_NO_ACTIVE_CHILD_j;
+    ActionsModel_DW.is_RotateLeft = ActionsMod_IN_NO_ACTIVE_CHILD_d;
     ActionsModel_DW.exit_port_index_RotateLeft = 2U;
   } else if (ActionsModel_areAllSpeedsZero(rtu_speed->motor1, rtu_speed->motor2,
               rtu_speed->motor3, rtu_speed->motor4) != 0) {
@@ -1772,8 +1772,8 @@ static void ActionsModel_RotateRight(const ENUM_UserAction
        */
       /* Chart: '<Root>/RoverAction' */
       if (*rtu_currentUserAction != UA_ROTATE_RIGHT) {
-        ActionsModel_DW.is_RR_RotateRight = ActionsMod_IN_NO_ACTIVE_CHILD_j;
-        ActionsModel_DW.is_RotateRight = ActionsMod_IN_NO_ACTIVE_CHILD_j;
+        ActionsModel_DW.is_RR_RotateRight = ActionsMod_IN_NO_ACTIVE_CHILD_d;
+        ActionsModel_DW.is_RotateRight = ActionsMod_IN_NO_ACTIVE_CHILD_d;
         ActionsModel_DW.exit_port_index_RotateRight = 2U;
       } else if (*rty_safeAction == SA_NONE) {
         /* l'utente vorrebbe continuare a ruotare a DX e non c'è più l'ostacolo */
@@ -1808,8 +1808,8 @@ static void ActionsModel_RotateRight(const ENUM_UserAction
          */
         /* Chart: '<Root>/RoverAction' */
         if (*rtu_currentUserAction != UA_ROTATE_RIGHT) {
-          ActionsModel_DW.is_RR_RotateRight = ActionsMod_IN_NO_ACTIVE_CHILD_j;
-          ActionsModel_DW.is_RotateRight = ActionsMod_IN_NO_ACTIVE_CHILD_j;
+          ActionsModel_DW.is_RR_RotateRight = ActionsMod_IN_NO_ACTIVE_CHILD_d;
+          ActionsModel_DW.is_RotateRight = ActionsMod_IN_NO_ACTIVE_CHILD_d;
           ActionsModel_DW.exit_port_index_RotateRight = 2U;
         } else if (*rty_safeAction == SA_NONE) {
           /* l'utente vorrebbe continuare a ruotare a DX e non c'è più l'ostacolo */
@@ -1847,8 +1847,8 @@ static void ActionsModel_RotateRight(const ENUM_UserAction
         rty_setPoint->rightAxis = 0.0F;
         rty_setPoint->leftAxis = 0.0F;
       } else if (*rtu_currentUserAction != UA_ROTATE_RIGHT) {
-        ActionsModel_DW.is_RR_RotateRight = ActionsMod_IN_NO_ACTIVE_CHILD_j;
-        ActionsModel_DW.is_RotateRight = ActionsMod_IN_NO_ACTIVE_CHILD_j;
+        ActionsModel_DW.is_RR_RotateRight = ActionsMod_IN_NO_ACTIVE_CHILD_d;
+        ActionsModel_DW.is_RotateRight = ActionsMod_IN_NO_ACTIVE_CHILD_d;
         ActionsModel_DW.exit_port_index_RotateRight = 2U;
       } else {
         *rty_roverAction = RA_ROTATE_RIGHT;
@@ -1869,7 +1869,7 @@ static void ActionsModel_RotateRight(const ENUM_UserAction
     /* Chart: '<Root>/RoverAction' */
     /* case IN_RR_StopMotors: */
   } else if (*rtu_currentUserAction != UA_ROTATE_RIGHT) {
-    ActionsModel_DW.is_RotateRight = ActionsMod_IN_NO_ACTIVE_CHILD_j;
+    ActionsModel_DW.is_RotateRight = ActionsMod_IN_NO_ACTIVE_CHILD_d;
     ActionsModel_DW.exit_port_index_RotateRight = 2U;
   } else if (ActionsModel_areAllSpeedsZero(rtu_speed->motor1, rtu_speed->motor2,
               rtu_speed->motor3, rtu_speed->motor4) != 0) {

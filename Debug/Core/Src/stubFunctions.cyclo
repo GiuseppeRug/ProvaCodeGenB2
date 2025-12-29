@@ -1,6 +1,7 @@
-../Core/Src/stubFunctions.c:19:9:CheckRTR	1
-../Core/Src/stubFunctions.c:23:6:UartTransmitIT	1
-../Core/Src/stubFunctions.c:29:6:UartReceiveIT	2
-../Core/Src/stubFunctions.c:40:6:HAL_UART_RxCpltCallback	3
-../Core/Src/stubFunctions.c:51:6:B2checkPrintReceive	5
-../Core/Src/stubFunctions.c:81:6:B2checkPrintTransmit	5
+../Core/Src/stubFunctions.c:19:9:checkRTR	1
+../Core/Src/stubFunctions.c:24:6:UART_TransmitIT	1
+../Core/Src/stubFunctions.c:33:6:setRTR	1
+../Core/Src/stubFunctions.c:38:6:resetRTR	1
+../Core/Src/stubFunctions.c:43:6:UART_ReceiveIT	2
+../Core/Src/stubFunctions.c:55:9:hasReceived	1
+../Core/Src/stubFunctions.c:60:6:HAL_UART_RxCpltCallback	3

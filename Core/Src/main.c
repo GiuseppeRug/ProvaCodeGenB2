@@ -106,7 +106,7 @@ int main(void)
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
 	clearScreen();
-	printMsg("PROVA COD GEN B2\r\n");
+	printMsg("PROVA COD GEN B22\r\n");
 
 	  uint8_t flagStampa = 1;
 
@@ -122,9 +122,6 @@ int main(void)
 
 	// Continua
 	Board2_U.continua = 0;
-
-	// Receive che dovrebbe essere gestito dalla receive it
-	Board2_DW.received = 0;
 
 	Board2_initialize();
 
